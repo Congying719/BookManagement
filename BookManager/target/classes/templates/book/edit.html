@@ -63,8 +63,11 @@
 
 				<div class="unit clear">
 					<div class="left"><p class="subtitle">出版时间</p></div>
+<!--					<div class="right">-->
+<!--						<input type="text" id="publishTime" name="year" class="ex-date" style="width: 180px;" value="" readonly/>-->
+<!--					</div>-->
 					<div class="right">
-						<input type="text" id="publishTime" class="ex-date" style="width: 180px;" value="" readonly/>
+						<input type="text" id="publishTime" name="year" class="text" placeholder="请填写出版时间"/>
 					</div>
 				</div>
 
@@ -128,7 +131,7 @@
         var bookName = $("#bookName").val();
         var isbn = $("#isbn").val();
         var author = $("#author").val();
-        var pic=$("#edit-pic").val();
+		var year = $("#publishTime").val();
         // 校验文本
         if (bookName == "") {
             javaex.optTip({
@@ -152,13 +155,7 @@
 
             return false;
         }
-		if(pic==""){
-            javaex.optTip({
-                content : "请上传封面图!",
-                type : "error"
-            });
-            return false;
-		}
+
 		var data=$("#book-edit-form").serialize();
         console.log(data);
         $.ajax({
@@ -200,30 +197,6 @@
         window.location.href = "/book/list";
     });
 
-    function upload(){
-        var formData = new FormData();
-        formData.append('photo',document.getElementById('edit-photo').files[0]);
-        $.ajax({
-            url:'/upload/upload_photo',
-            contentType:false,
-            processData:false,
-            data:formData,
-            type:'POST',
-            success:function(data){
-                if(data.type == "success"){
-                    alert("上传成功");
-                    $("#edit-pic").val(data.data);
-                    $("#view-photo").attr("src","../photo/view?filename="+data.data);
-                }else{
-                    data = $.parseJSON(data);
-                    alert("上传失败");
-                }
-            },
-            error:function(data){
-                alert('网络错误!');
-            }
-        });
-    }
 </script>
 </body>
 </html>

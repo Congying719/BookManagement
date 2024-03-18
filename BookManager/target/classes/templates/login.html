@@ -25,7 +25,7 @@
         input[type="text"], input[type="password"]{border: 0;outline: 0;}
         input, button{text-rendering: auto;color: initial;letter-spacing: normal;word-spacing: normal;text-transform: none;text-indent: 0px;text-shadow: none;display: inline-block;text-align: start;margin: 0em;font: 400 13.3333px Arial;}
         input[type=button]{-webkit-appearance: button;cursor: pointer;}
-        .bg-wrap {position: relative;background: url(../javaex/img/background.jpg) top left no-repeat;background-size: cover;overflow: hidden;}
+        .bg-wrap {position: relative;background: url(../javaex/img/background.png) top left no-repeat;background-size: cover;overflow: hidden;}
         .main-cont-wrap{z-index: 1;position: absolute;top: 50%;left: 50%;margin-left: -190px;margin-top: -255px;box-sizing: border-box;width: 380px;padding: 30px 30px 40px;background: #fff;box-shadow: 0 20px 30px 0 rgba(63,63,65,.06);border-radius: 10px;}
         .form-title{margin-bottom: 40px;}
         .form-title>span{font-size: 20px;color: #2589ff;}
@@ -41,7 +41,7 @@
 <div class="bg-wrap">
     <div class="main-cont-wrap login-model">
         <form id="form">
-            <div class="form-title">
+            <div class="form-title" align="center">
                 <span>图书管理系统登录页面</span>
             </div>
             <div class="form-item">
@@ -51,17 +51,6 @@
             <div class="form-item">
                 <span class="form-txt">密码：</span>
                 <input type="password" class="form-input original" name="password" id="pass" placeholder="请输入密码" data-type="必填" error-pos="32" />
-            </div>
-            <div class="form-item">
-                <span class="form-txt">角色：</span>
-                <select id="select" name="identity" class="form-control">
-                    <option value="">请选择身份</option>
-                    <option value="3">管理员</option>
-                    <option value="0">普通用户</option>
-                </select>
-            </div>
-            <div class="form-item">
-                <input type="checkbox" id="remember" name="remember" class="fill"/> 记住我
             </div>
             <div class="form-btn">
                 <input type="button" class="ui-button" id="save" value="登录" />
@@ -74,7 +63,7 @@
     $("#save").on("click", function(){
         var username =  $("#uname").val();
         var password =  $("#pass").val();
-        var identity = $("#select").val();
+        var identity = 3;
         // 记住我
         var remember = $("#remember").val();
 

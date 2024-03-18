@@ -31,33 +31,13 @@
             <if test="name != null and name != ''">
                 `name` = #{name},
             </if>
-            <if test="pages != null">
-                pages = #{pages},
-            </if>
-            <if test="translate != null and translate != ''">
-                `translate` = #{translate},
-            </if>
-            <if test="publish != null and publish != ''">
-                publish = #{publish},
-            </if>
-            <if test="price != null">
-                price = #{price},
-            </if>
-            <if test="size != null">
-                `size` = #{size},
-            </if>
-            <if test="type != null and type != ''">
-                `type` = #{type},
-            </if>
-            <if test="publishTime != null">
-                publish_time = #{publishTime},
+            <if test="year != null">
+                year = #{year},
             </if>
             <if test="author != null">
                 author = #{author},
             </if>
-            <if test="pic != null">
-                pic = #{pic},
-            </if>
+
         </set>
         where id = #{id}
     </update>

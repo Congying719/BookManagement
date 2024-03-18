@@ -1,20 +1,16 @@
 package com.book.manager.service;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.date.DateUtil;
 import com.book.manager.dao.BookMapper;
 import com.book.manager.entity.Book;
 import com.book.manager.repos.BookRepository;
-import com.book.manager.util.vo.BookOut;
 import com.book.manager.util.vo.PageOut;
 import com.book.manager.util.ro.PageIn;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -96,17 +92,9 @@ public class BookService {
         List<Book> list = bookMapper.findBookListByLike(pageIn.getKeyword());
         PageInfo<Book> pageInfo = new PageInfo<>(list);
 
-        List<BookOut> bookOuts = new ArrayList<>();
-        for (Book book : pageInfo.getList()) {
-            BookOut out = new BookOut();
-            BeanUtil.copyProperties(book,out);
-
-            bookOuts.add(out);
-        }
-
         // 自定义分页返回对象
         PageOut pageOut = new PageOut();
-        pageOut.setList(bookOuts);
+        pageOut.setList(list);
         pageOut.setTotal((int)pageInfo.getTotal());
         pageOut.setCurrPage(pageInfo.getPageNum());
         pageOut.setPageSize(pageInfo.getPageSize());

@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * @Description 返回对象
  */
-public class R implements Serializable{
+public class Response implements Serializable{
 
     @ApiModelProperty("响应码")
     private Integer code;
@@ -19,43 +19,43 @@ public class R implements Serializable{
     @ApiModelProperty("响应数据")
     private Object data;
 
-    public R() {
+    public Response() {
     }
 
-    public R(String msg, String data) {
+    public Response(String msg, String data) {
         this.msg = msg;
         this.data = data;
     }
 
-    public R(Integer code, String msg, String data) {
+    public Response(Integer code, String msg, String data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
 
-    public R(CodeEnum codeEnum,Object data) {
+    public Response(CodeEnum codeEnum, Object data) {
         this.code = codeEnum.getCode();
         this.msg = codeEnum.getData();
         this.data = data;
     }
 
-    public R(CodeEnum codeEnum) {
+    public Response(CodeEnum codeEnum) {
         this.code = codeEnum.getCode();
         this.msg = codeEnum.getData();
     }
 
 
-    public static R success(CodeEnum codeEnum,Object data) {
-        return new R(codeEnum,data);
+    public static Response success(CodeEnum codeEnum, Object data) {
+        return new Response(codeEnum,data);
     }
 
-    public static R success(CodeEnum codeEnum) {
-        return new R(codeEnum);
+    public static Response success(CodeEnum codeEnum) {
+        return new Response(codeEnum);
     }
 
-    public static R fail(CodeEnum codeEnum) {
-        return new R(codeEnum);
+    public static Response fail(CodeEnum codeEnum) {
+        return new Response(codeEnum);
     }
 
 

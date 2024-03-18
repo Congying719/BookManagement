@@ -20,36 +20,4 @@ public class PageOut {
 
     @ApiModelProperty("数据")
     private Object list;
-
-    public Integer getCurrPage() {
-        return currPage;
-    }
-
-    public void setCurrPage(Integer currPage) {
-        this.currPage = currPage;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getTotal() {
-        return total;
-    }
-
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
-
-    public Object getList() {
-        return list;
-    }
-
-    public void setList(Object list) {
-        this.list = list;
-    }
 }
