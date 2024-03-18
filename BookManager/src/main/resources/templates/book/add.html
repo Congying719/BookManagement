@@ -60,13 +60,10 @@
 					</div>
 				</div>
 
-
-
-
 				<div class="unit clear">
 					<div class="left"><p class="subtitle">出版时间</p></div>
 					<div class="right">
-						<input type="text" id="publishTime" name="publishTime" class="ex-date" style="width: 180px;" value="" readonly/>
+						<input type="text" id="publishTime" name="year" class="text" placeholder="请填写出版时间"/>
 					</div>
 				</div>
 
@@ -106,6 +103,7 @@
 		var bookName = $("#bookName").val();
 		var isbn = $("#isbn").val();
 		var author = $("#author").val();
+		var year = $('publishTime').val();
 
         // 校验文本
 		if (bookName == "") {
